@@ -12,7 +12,7 @@
 # Set gid=0 and make group perms==owner perms
 ################################################################################
 
-FROM test:5 AS prep_es_files
+FROM sharma22/jdk AS prep_es_files
 
 RUN curl -s https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz | tar -C /opt -zxf -
 ENV JAVA_HOME /opt/jdk-11.0.1
@@ -49,7 +49,7 @@ USER 1000
 # Add entrypoint
 ################################################################################
 
-FROM test:5
+FROM sharma22/jdk
 
 ENV ELASTIC_CONTAINER true
 
